@@ -1,5 +1,31 @@
+/* Fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Italiana&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.roboto-regular {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+
+/* Fonts - end */
+
+
+/* Universal styles */
+
+.section-title {
+    margin: 1rem;
+    text-decoration: underline;
+    text-underline-offset: 0.5rem;
+    text-decoration-color: var(--fourth);
+    text-decoration-thickness: 0.2rem;
+}
+
+/*  */
+
 :root {
-    --primary: #FFF9D0;
+    --primary: #fff;
     --secondary: #CAF4FF;
     --third: #A0DEFF;
     --fourth: #5AB2FF;
@@ -18,7 +44,7 @@ html {
 
 body {
     background-color: var(--primary);
-    font-family: Arial, sans-serif;
+    font-family: "Roboto", sans-serif;
     line-height: 1.5;
 }
 
@@ -37,19 +63,106 @@ header .logo {
     align-items: center;
 }
 
-header .nav_list {
+header .header_nav {
     display: flex;
-    list-style-type: none;
     justify-content: center;
     align-items: center;
 }
 
-header .nav_item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.7rem;
-    cursor: pointer;
-}
 
 /* Header - END */
+
+/* Create post section - Start */
+
+.opacity-effect {
+    opacity: 1 !important;
+}
+
+.create-post {
+    display: none;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    line-height: 0.5;
+    opacity: 0;
+    transition-property: width;
+    transition: all 0.2s ease;
+}
+
+.create-post h1 {
+    text-align: center;
+    margin: 4% 0rem;
+}
+
+.create-post form {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.create-post div {
+    margin-bottom: 20px;
+}
+
+.create-post label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.create-post input[type="text"],
+.create-post textarea {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    resize: none;
+}
+
+.form-btn-container {
+    text-align: center;
+}
+/* Create post section - End */
+
+/* Posts Section - Start */
+
+.posts-section-title {
+    text-align: center;
+}
+
+.posts-container {  
+    width: 100%;
+    height: 85vh;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.post {
+    width: 100%;
+    max-height: 200px;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: var(--secondary);
+    box-shadow: 0.1rem 0.1rem 0.4rem 0.4rem rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+
+/* Posts section - End */
+
+
+/* Footer - start */
+
+footer {
+    background-color: var(--secondary);
+    padding: 1rem;
+    text-align: center;
+}
+
+/* Footer - end */

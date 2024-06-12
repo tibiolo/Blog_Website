@@ -1,0 +1,37 @@
+:root {
+  --fourth: #007bff;
+  --fourth-darken-10: #0069d9;
+  --fourth-darken-20: #0056b3;
+}
+
+.create-post-btn {
+  background-color: var(--fourth);
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  font-size: large;
+  color: white;
+  border: 2px solid transparent;
+  box-shadow: 0.1rem 0.2rem rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.create-post-btn:hover {
+  background-color: var(--fourth-darken-10);
+  box-shadow: 0.2rem 0.4rem rgba(0, 0, 0, 0.3);
+}
+
+.create-post-btn:active {
+  background-color: var(--fourth-darken-20);
+  box-shadow: 0.1rem 0.2rem rgba(0, 0, 0, 0.3);
+}
+
+.create-post-btn .btn-icon {
+  margin-right: 0.4rem;
+}
+
+
+
+
+
+
