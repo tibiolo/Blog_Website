@@ -1,0 +1,55 @@
+:root {
+    --primary: #FFF9D0;
+    --secondary: #CAF4FF;
+    --third: #A0DEFF;
+    --fourth: #5AB2FF;
+}
+
+html {
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--primary);
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+}
+
+/* Header - START */
+
+header {
+    background-color: var(--secondary);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .nav_list {
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+    align-items: center;
+}
+
+header .nav_item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7rem;
+    cursor: pointer;
+}
+
+/* Header - END */
