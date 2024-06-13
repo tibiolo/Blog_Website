@@ -20,7 +20,7 @@
 
     <section class="create-post">
       <h1 class="section-title" >New Blog Post</h1>
-      <form action="/submit-post" method="post">
+      <form action="/submit" method="post">
         <div>
           <label for="title">Post Title:</label><br />
           <input
@@ -62,14 +62,12 @@
 
     <section class="posts">
       <div class="posts-container">
-        <div id="" class="post">
-          <h3 class="post-author">Johnny Bravo</h3>
-          <h1 class="post-title">Adventures of Johnny Lolz Ultra Lolz</h1>
-        </div>
-        <div id="" class="post">
-          <h3 class="post-author">Johnny Bravo</h3>
-          <h1 class="post-title">Adventures of Johnny</h1>
-        </div>
+        <% data.forEach(post => { %>
+          <div id="<%= post.id %>" class="post">
+            <h3 class="post-author"><%= post.author %> </h3>
+            <h1 class="post-title"><%= post.title %></h1>
+          </div>
+        <% }) %>
       </div>
     </section>
 
