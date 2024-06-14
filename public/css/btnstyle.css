@@ -30,7 +30,26 @@
   margin-right: 0.4rem;
 }
 
+.displayed-post-button {
+  background-color: var(--fourth);
+  padding: 0.1rem 0.5rem;
+  border-radius: 0.5rem;
+  font-size: small;
+  color: white;
+  border: 2px solid transparent;
+  box-shadow: 0.1rem 0.2rem rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
 
+.displayed-post-button:hover{
+  background-color: var(--fourth-darken-10);
+  box-shadow: 0.2rem 0.3rem rgba(0, 0, 0, 0.3);
+}
+
+.displayed-post-button .btn-icon {
+  margin-right: 0.3rem;
+}
 
 
 

@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/style.css" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/create_post.css" />
     <link rel="stylesheet" href="/css/btnstyle.css" />
     <link
       rel="stylesheet"
@@ -14,54 +16,52 @@
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <title>BlogIT</title>
-</head>
-<body>
+  </head>
+  <body>
+    <%- include('./partials/header.ejs') %>
 
-  <%- include('./partials/header.ejs') %>
+    <h1 class="section-title">New Blog Post</h1>
 
-  <h1 class="section-title">New Blog Post</h1>
+    <section class="create-post">
+      <form action="/submit" method="post">
+        <div>
+          <label for="title">Post Title:</label><br />
+          <input
+            type="text"
+            id="title"
+            name="title"
+            placeholder="Title..."
+            required
+          />
+        </div>
+        <div>
+          <label for="author">Author Name:</label><br />
+          <input
+            type="text"
+            id="author"
+            name="author"
+            placeholder="Author..."
+            required
+          />
+        </div>
+        <div>
+          <br />
+          <label for="content">Post Content:</label><br />
+          <textarea
+            id="content"
+            name="content"
+            rows="10"
+            placeholder="Post..."
+            required
+          ></textarea>
+        </div>
+        <div class="form-btn-container">
+          <button class="create-post-btn" type="submit">Submit Post</button>
+        </div>
+      </form>
+    </section>
 
-  <section class="create-post">
-    <form action="/submit" method="post">
-      <div>
-        <label for="title">Post Title:</label><br />
-        <input
-          type="text"
-          id="title"
-          name="title"
-          placeholder="Title..."
-          required
-        />
-      </div>
-      <div>
-        <label for="author">Author Name:</label><br />
-        <input
-          type="text"
-          id="author"
-          name="author"
-          placeholder="Author..."
-          required
-        />
-      </div>
-      <div>
-        <br />
-        <label for="content">Post Content:</label><br />
-        <textarea
-          id="content"
-          name="content"
-          rows="10"
-          placeholder="Post..."
-          required
-        ></textarea>
-      </div>
-      <div class="form-btn-container">
-        <button class="create-post-btn" type="submit">Submit Post</button>
-      </div>
-    </form>
-  </section>  
-
-
-  <%- include('./partials/footer.ejs') %>
-  <script src="/js/script.js"></script>
-</body>
+    <%- include('./partials/footer.ejs') %>
+    <script src="/js/script.js"></script>
+  </body>
 </html>

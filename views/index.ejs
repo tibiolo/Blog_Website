@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/btnstyle.css" />
     <link
@@ -24,8 +25,8 @@
       <div class="posts-container">
         <% data.forEach(post => { %>
           <div id="<%= post.id %>" class="post" onclick="redirectToPost(this)">
-            <h3 class="post-author"><%= post.author %> </h3>
-            <h1 class="post-title"><%= post.title %></h1>
+            <h1 class="post-title post-title-underline"><%= post.title %></h1>
+            <h3 class="post-author">~ <%= post.author %> </h3>
           </div>
         <% }) %>
       </div>
