@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/btnstyle.css" />
+    <link rel="stylesheet" href="/css/post_display_page.css">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -16,8 +17,21 @@
     <title>BlogIT</title>
   </head>
   <body>
-    <%- include('./partials/header.ejs') %>
+    <%- include('./partials/header.ejs')%>
+
+    <section class="post-display-container">
+      <div class="displayed-post">
+        <h1><%= post.author %></h1>
+        <h3><%= post.title %></h3>
+        <p><%= post.content %></p>
+        <div class="displayed-post-nav">
+          <button class="edit-post displayed-post-button">Edit</button>
+          <button class="delete-post displayed-post-button">Delete</button>
+        </div>
+      </div>
+    </section>
 
     <%- include('./partials/footer.ejs') %>
+    <script src="/js/script.js"></script>
   </body>
 </html>

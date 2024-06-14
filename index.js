@@ -16,6 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 let posts = [];
 
+// Loads posts from a json file
 async function loadPostsFromFile() {
     try {
         const data = await fs.promises.readFile("posts.json", "utf8");
@@ -29,6 +30,7 @@ async function loadPostsFromFile() {
     }
 }
 
+// Saves posts to a json file
 async function savePostsToFile() {
     try {
         await fs.promises.writeFile("posts.json", JSON.stringify(posts), "utf8");
@@ -39,16 +41,31 @@ async function savePostsToFile() {
     }
 }
 
+// Finds Posts using PostId
+function findPostById(postId) {
+    try {
+        const foundPost = posts.find(post => post.id === postId);
+        console.log("Post Found! successfully");
+        return foundPost;
+    } catch (error) {
+        console.error("Error while looking for post", error.message);
+        throw error;
+    }
+}
+
 // Loads initial posts
 loadPostsFromFile().then((loadedPosts) => {
     posts = loadedPosts;
 
+    // Webapp Initialization
     app.get("/", (req, res) => {
         res.render(__dirname + "/views/index.ejs", {
             data: posts,
+            showNav: true,
         });
     });
 
+    // Post Form submission route - calls a function which saves the post
     app.post("/submit", async (req, res) => {
         const { author, title, content } = req.body;
         const newPost = {
@@ -67,14 +84,30 @@ loadPostsFromFile().then((loadedPosts) => {
         }
     });
 
-    app.get("/post/:id", (req, res) => {
-        res.render(__dirname + "/views/post.ejs");
-    });
-
-    app.listen(PORT, () => {
-        console.log(`Server running on port: ${PORT}`);
-    });
-
 }).catch((error) => {
     console.error("Error loading posts: ", error.message);
+});
+
+
+// Post Creation Route
+app.get("/create_post", (req, res) => {
+    res.render(__dirname + "/views/create_post.ejs");
+})
+
+
+// Post display Route
+app.get("/post/:id", (req, res) => {
+    const postId = req.params.id;
+    console.log(postId);
+    const foundPost = findPostById(postId);
+    res.render(__dirname + "/views/display_post.ejs", {
+        post: foundPost,
+        showNav: true,
+    });
+});
+
+
+// Server Listening Port
+app.listen(PORT, () => {
+    console.log(`Server running on port: ${PORT}`);
 });

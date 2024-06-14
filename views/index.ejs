@@ -18,52 +18,12 @@
   <body>
     <%- include('./partials/header.ejs') %>
 
-    <section class="create-post">
-      <h1 class="section-title" >New Blog Post</h1>
-      <form action="/submit" method="post">
-        <div>
-          <label for="title">Post Title:</label><br />
-          <input
-            type="text"
-            id="title"
-            name="title"
-            placeholder="Title..."
-            required
-          />
-        </div>
-        <div>
-          <label for="author">Author Name:</label><br />
-          <input
-            type="text"
-            id="author"
-            name="author"
-            placeholder="Author..."
-            required
-          />
-        </div>
-        <div>
-          <br />
-          <label for="content">Post Content:</label><br />
-          <textarea
-            id="content"
-            name="content"
-            rows="10"
-            placeholder="Post..."
-            required
-          ></textarea>
-        </div>
-        <div class="form-btn-container">
-          <button class="create-post-btn" type="submit">Submit Post</button>
-        </div>
-      </form>
-    </section>
-
-    <h2 class="posts-section-title section-title">Posts</h1>
+    <h1 class="posts-section-title section-title">Posts</h1>
 
     <section class="posts">
       <div class="posts-container">
         <% data.forEach(post => { %>
-          <div id="<%= post.id %>" class="post">
+          <div id="<%= post.id %>" class="post" onclick="redirectToPost(this)">
             <h3 class="post-author"><%= post.author %> </h3>
             <h1 class="post-title"><%= post.title %></h1>
           </div>
