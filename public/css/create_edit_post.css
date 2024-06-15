@@ -1,7 +1,7 @@
 /* Create post section - Start */
 
 
-.create-post {
+.create-edit-post {
   width: 100%;
   max-width: 100%;
   min-height: 90vh;
@@ -10,11 +10,11 @@
   line-height: 0.5;
 }
 
-.create-post h2 {
+.create-edit-post h2 {
   text-align: center;
 }
 
-.create-post form {
+.create-edit-post form {
   background-color: var(--secondary);
   width: 100%;
   max-width: 100%;
@@ -26,17 +26,17 @@
   transition: 0.2s;
 }
 
-.create-post div {
+.create-edit-post div {
   margin-bottom: 20px;
 }
 
-.create-post label {
+.create-edit-post label {
   display: block;
   margin-bottom: 5px;
 }
 
-.create-post input[type="text"],
-.create-post textarea {
+.create-edit-post input[type="text"],
+.create-edit-post textarea {
   width: 100%;
   max-width: 100%;
   padding: 10px;

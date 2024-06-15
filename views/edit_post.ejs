@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/create_edit_post.css" />
     <link rel="stylesheet" href="/css/btnstyle.css" />
+    <link rel="stylesheet" href="/css/create_edit_post.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -18,12 +18,14 @@
     <title>BlogIT</title>
   </head>
   <body>
+
     <%- include('./partials/header.ejs') %>
 
-    <h1 class="section-title">New Blog Post</h1>
+    <h1 class="section-title">Edit Blog Post</h1>
 
     <section class="create-edit-post">
-      <form action="/submit" method="post">
+      <form action="/edit_submit" method="post">
+        <input type="hidden" name="id" value="<%= post.id %>">
         <div>
           <label for="title">Post Title:</label><br />
           <input
@@ -32,6 +34,7 @@
             name="title"
             placeholder="Title..."
             required
+            value="<%= post.title %>"
           />
         </div>
         <div>
@@ -42,6 +45,7 @@
             name="author"
             placeholder="Author..."
             required
+            value="<%= post.author %>"
           />
         </div>
         <div>
@@ -53,15 +57,16 @@
             rows="10"
             placeholder="Post..."
             required
-          ></textarea>
+          ><%= post.content %></textarea>
         </div>
         <div class="form-btn-container">
-          <button class="create-post-btn" type="submit">Submit Post</button>
+          <button class="create-post-btn" type="submit"><i class="fa-regular fa-pen-to-square btn-icon"></i>Edit Post</button>
         </div>
       </form>
     </section>
 
+
     <%- include('./partials/footer.ejs') %>
-    <script src="/js/script.js"></script>
+
   </body>
 </html>

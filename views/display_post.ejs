@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/btnstyle.css" />
-    <link rel="stylesheet" href="/css/post_display_page.css">
+    <link rel="stylesheet" href="/css/post_display_page.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -23,14 +23,24 @@
     <section class="post-display-container">
       <div class="displayed-post">
         <div class="displayed-post-top-content">
-          <h1 class="displayed-post-title" ><%= post.title %></h1>
+          <h1 class="displayed-post-title"><%= post.title %></h1>
           <div class="displayed-post-buttons-container">
-            <button class="edit-post displayed-post-button"><i class="fa-regular fa-pen-to-square btn-icon"></i>Edit</button>
-            <button class="delete-post displayed-post-button"><i class="fa-regular fa-trash-can btn-icon"></i>Delete</button>
+            <button
+              class="edit-post displayed-post-button"
+              onclick="{window.location.href = `/edit/<%= post.id %>`}"
+            >
+              <i class="fa-regular fa-pen-to-square btn-icon"></i>Edit
+            </button>
+            <button
+              class="delete-post displayed-post-button"
+              onclick="{window.location.href = `/delete/<%= post.id %>`}"
+            >
+              <i class="fa-regular fa-trash-can btn-icon"></i>Delete
+            </button>
           </div>
         </div>
         <h4>~ <%= post.author %></h4>
-        <p class="displayed-post-content" ><%= post.content %></p>
+        <p class="displayed-post-content"><%= post.content %></p>
       </div>
     </section>
 

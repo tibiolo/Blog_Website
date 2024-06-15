@@ -94,6 +94,50 @@ app.get("/create_post", (req, res) => {
     res.render(__dirname + "/views/create_post.ejs");
 })
 
+// Post delete route
+app.get("/delete/:id", async (req, res) => {
+    const postId = req.params.id;
+    try {
+        posts = posts.filter((post) => post.id !== postId);
+        await savePostsToFile();
+        console.log("post removed successfully");
+        res.redirect("/");
+    } catch (error) {
+        console.error("Couldn't find post to remove", error.message);
+    }
+})
+
+// Post edit page route
+app.get("/edit/:id", (req, res) => {
+    const postId = req.params.id;
+    const foundPost = findPostById(postId);
+    if (foundPost) {
+        res.render(__dirname + "/views/edit_post.ejs", {
+            post: foundPost,
+        });
+    } else {
+        res.status(404).send("Post not found");
+    }
+});
+
+// Post file edit route.
+app.post("/edit_submit", async (req, res) => {
+    const { id, author, title, content } = req.body;
+    try {
+        const postIndex = posts.findIndex(post => post.id === id);
+        posts[postIndex] =  {
+            id: id,
+            author: author,
+            title: title,
+            content: content,
+        };
+        await savePostsToFile();
+        res.redirect(`/post/${id}`)
+    } catch (error) {
+        console.error("Failed to edit post", error.message);
+    }
+})
+
 
 // Post display Route
 app.get("/post/:id", (req, res) => {
