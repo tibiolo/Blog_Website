@@ -39,3 +39,10 @@
   white-space: pre-wrap;
 }
 /* End */
+
+
+@media screen and (min-width: 600px) {
+  .displayed-post {
+      width: 60%;
+  }
+}

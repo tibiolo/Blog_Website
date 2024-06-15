@@ -103,6 +103,7 @@ header .header_nav {
     padding: 2rem;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 2rem;
 }
 
@@ -123,10 +124,6 @@ header .header_nav {
     cursor: pointer;
 }
 
-
-
-
-
 /* Posts section - End */
 
 
@@ -141,3 +138,12 @@ footer {
 }
 
 /* Footer - end */
+
+
+
+/* Responsiveness makes the posts smaller on larger displays */
+@media screen and (min-width: 600px) {
+    .post {
+        width: 60%;
+    }
+}
